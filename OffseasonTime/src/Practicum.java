@@ -1,34 +1,72 @@
-import java.util.ArrayList;
+import java.util.Scanner;
+
+import newYear.*;
 
 public class Practicum {
+
+    // Дополните объявление поля friendsContactBook, которое будет хранить в себе список номеров телефонов друзей
+    private static ContactBook<Phone> friendsContactBook = new ContactBook<>();
+    // Напишите объявления полей colleaguesContactBook, classmatesContactBook и relativesContactBook,
+    // которые будут хранить списки электронных адресов, соцсетей и почтовых адресов соответственно
+    public static ContactBook<SocialNetworkContact> classmatesContactBook = new ContactBook<>();
+    public static ContactBook<Email> colleaguesContactBook = new ContactBook<>();
+    public static ContactBook<Address> relativesContactBook = new ContactBook<>();
+
+
     public static void main(String[] args) {
-        Post post = new Post();
-        post.setTitle("Почему второй язык программирования выучить проще, чем первый?");
-        post.setContent("Если вы научились водить автомобиль на механике, " +
-                "вы можете сесть плюс-минус за любой автомобиль и поехать. " +
-                "Вам необязательно ездить именно за тем рулём, " +
-                "за которым вы учились в автошколе. " +
-                "Может быть, первое время вам будет непривычно в новой машине," +
-                " но вы быстро освоитесь.");
-        post.setTags(new String[]{"Образование", "Карьера в IT"});
+        fillBooks();
 
-        PostComment comment1 = new PostComment();
-        comment1.setText("Отличная статья!");
-        comment1.setWhoLiked(new String[] { "Lera93", "934Vasya1" });
+        Scanner scanner = new Scanner(System.in);
 
-        PostComment comment2 = new PostComment();
-        comment2.setText("Тема не раскрыта :(");
-        comment2.setWhoLiked(new String[] { "Petya070707", "Masha90" });
+        while (true) {
+            System.out.println("Сегодня Новый Год! 1 - Отправить поздравление, 0 - Напомнить позднее");
+            int mainCommand = scanner.nextInt();
+            if (mainCommand == 1) {
+                System.out.println("Какую книгу контактов открыть?");
+                System.out.println("1 - Друзья, 2 - Коллеги, 3 - Одногруппники, 4 - Родственники");
 
-        PostComment comment3 = new PostComment();
-        comment3.setText("❤❤❤");
+                int bookIndex = scanner.nextInt();
+                if (bookIndex == 1) {
+                    friendsContactBook.printList();
+                } else if (bookIndex == 2) {
+                    colleaguesContactBook.printList();
+                } else if (bookIndex == 3) {
+                    classmatesContactBook.printList();
+                } else if (bookIndex == 4) {
+                    relativesContactBook.printList();
+                }
 
-        ArrayList<PostComment> comments = new ArrayList<>();
-        comments.add(comment1);
-        comments.add(comment2);
-        comments.add(comment3);
-        post.setComments(comments);
-
-        System.out.println(post);
+                System.out.println("Кого вы хотите поздравить? Введите имя:");
+                String name = scanner.next();
+                if (bookIndex == 1) {
+                    friendsContactBook.congratulate(name);
+                } else if (bookIndex == 2) {
+                    colleaguesContactBook.congratulate(name);
+                } else if (bookIndex == 3) {
+                    classmatesContactBook.congratulate(name);
+                } else if (bookIndex == 4) {
+                    relativesContactBook.congratulate(name);
+                }
+            } else if (mainCommand == 0) {
+                break;
+            }
+        }
     }
+
+    private static void fillBooks() {
+        friendsContactBook.addContact(new Phone("Иван", "+7-909-000-11-22"));
+        friendsContactBook.addContact(new Phone("Маша", "+7-999-555-11-22"));
+        friendsContactBook.addContact(new Phone("Кирилл", "+7-979-698-00-22"));
+
+        colleaguesContactBook.addContact(new Email("Александр", "sasha@sasha.ru"));
+        colleaguesContactBook.addContact(new Email("Павел", "pasha@pasha.ru"));
+        colleaguesContactBook.addContact(new Email("Олег", "oleg@oleg.ru"));
+
+        classmatesContactBook.addContact(new SocialNetworkContact("Оля", "НаСвязи", "olya"));
+        classmatesContactBook.addContact(new SocialNetworkContact("Женя", "Фотопризма", "zhenya"));
+
+        relativesContactBook.addContact(new Address("Бабуля", "Москва", "Тверская, д.8"));
+        relativesContactBook.addContact(new Address("Дедуля", "Воронеж", "Ленина, д.10"));
+    }
+
 }
