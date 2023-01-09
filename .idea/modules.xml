@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/YandexPracticum/OffseasonTime/OffseasonTime.iml" filepath="$PROJECT_DIR$/YandexPracticum/OffseasonTime/OffseasonTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Yandex.iml" filepath="$PROJECT_DIR$/.idea/Yandex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YandexPracticum/YandexContest/YandexContest.iml" filepath="$PROJECT_DIR$/YandexPracticum/YandexContest/YandexContest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YandexPracticum/first_sprint/first_sprint.iml" filepath="$PROJECT_DIR$/YandexPracticum/first_sprint/first_sprint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-kanban/java-kanban.iml" filepath="$PROJECT_DIR$/java-kanban/java-kanban.iml" />
+    </modules>
+  </component>
+</project>
