@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OffseasonTime/OffseasonTime.iml" filepath="$PROJECT_DIR$/OffseasonTime/OffseasonTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YandexContest/YandexContest.iml" filepath="$PROJECT_DIR$/YandexContest/YandexContest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/YandexPracticum.iml" filepath="$PROJECT_DIR$/.idea/YandexPracticum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/first_sprint/first_sprint.iml" filepath="$PROJECT_DIR$/first_sprint/first_sprint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-sprint1-hw/java-sprint1-hw.iml" filepath="$PROJECT_DIR$/java-sprint1-hw/java-sprint1-hw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/second_sprint_hw/second_sprint_hw.iml" filepath="$PROJECT_DIR$/second_sprint_hw/second_sprint_hw.iml" />
+    </modules>
+  </component>
+</project>

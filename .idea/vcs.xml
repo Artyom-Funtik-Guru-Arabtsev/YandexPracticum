@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/java-kanban" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/java-sprint1-hw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/java-sprint2-hw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/m1-t12-code-style" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/m1-t12-hotkeys" vcs="Git" />
+  </component>
+</project>
