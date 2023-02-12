@@ -1,26 +1,104 @@
-import Trash.DateTime;
-import Trash.DateTimeComparator;
-import Trash.RentedFilm;
+import exceptions.ValidateException;
+import exceptions.ValidateNameException;
+import exceptions.ValidatePasswordException;
+import storage.PasswordMemoryStorage;
+import storage.PasswordStorage;
+import validators.NameValidator;
+import validators.PasswordLengthValidator;
+import validators.PasswordStrengthValidator;
+import validators.Validator;
 
-public class Practicum {
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-        RentedFilm film1 = new RentedFilm(
-                "Терминатор",
-                new DateTime(20, 11, 2021, 10, 0, 0),
-                new DateTime(27, 11, 2021, 23, 58, 58)
-        );
-        System.out.println("Фильм Терминатор взят в аренду: " + film1.getTimeOfRent());
-        System.out.println("Фильм должен быть вернут до: " + film1.getTimeOfReturn());
+class Practicum {
 
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final List<Validator> passwordValidators = List.of(
+            new PasswordLengthValidator(5), new PasswordStrengthValidator()
+    );
 
-        DateTime today = new DateTime(27, 11, 2021, 23, 58, 59);
+    private static final List<Validator> nameValidators = List.of(
+            new NameValidator()
+    ); // поработайте со списком
 
-        System.out.println("Сегодняшнее число: " + today);
+    public static void main(String[] args) throws ValidateException {
+        loop();
+    }
 
-        DateTimeComparator comparator = new DateTimeComparator();
-        boolean shouldAlreadyBeReturned = comparator.compare(today, film1.getTimeOfReturn()) > 0;
+    public static void loop() throws ValidateException {
+        while (true) {
+            final String action = getAction();
+            if ("1".equals(action)) {
+                addUser();
+            } else if ("2".equals(action)) {
+                showUserPassword();
+            } else {
+                break;
+            }
+        }
+    }
 
-        System.out.println("Прошло ли время возврата? " + (shouldAlreadyBeReturned ? "Да!" : "Нет!"));
+    private static void checkValidatorRules(
+            final List<Validator> validators, final String value
+    ) throws ValidateException {
+        for (Validator validator : validators) {
+            validator.validate(value);
+        }
+    }
+
+    private static void addUser() throws ValidateException{
+        final PasswordStorage storage = new PasswordMemoryStorage();
+        // добавьте отлов исключений ValidateNameException и ValidatePasswordException
+        // закройте хранилище
+        try {
+            storage.open();
+            System.out.println("Введите имя пользователя => ");
+            final String name = scanner.nextLine();
+            checkValidatorRules(nameValidators, name);
+            System.out.println("Введите пароль пользователя => ");
+            final String password = scanner.nextLine();
+            checkValidatorRules(passwordValidators, password);
+            storage.store(name, password);
+        } catch (ValidateNameException e ) {
+            System.out.println("Ошибка валидации имени: " + e.getMessage());
+        }catch (ValidatePasswordException e){
+            System.out.println("Ошибка валидаци пароля: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Ошибка работы с хранилищем: " + e.getMessage());
+        } finally {
+            storage.close();
+        }
+    }
+
+    private static void showUserPassword() throws ValidateException {
+        final PasswordStorage storage = new PasswordMemoryStorage();
+        // добавьте отлов исключения ValidateNameException
+        // закройте хранилище
+        try {
+            storage.open();
+            System.out.println("Введите имя пользователя => ");
+            final String name = scanner.nextLine();
+            checkValidatorRules(nameValidators, name);
+            final String password = storage.get(name);
+            System.out.println(String.format("Пароль пользователя %s = %s", name, password));
+        } catch (ValidateNameException e) {
+            System.out.println("Ошибка валидации имени: " + e.getMessage());
+        } catch (ValidatePasswordException e) {
+            System.out.println("Ошибка валидации пароля: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Ошибка работы с хранилищем: " + e.getMessage());
+        } finally {
+            storage.close();
+        }
+    }
+
+    private static String getAction() {
+        System.out.println("1 - добавить пользователя с паролем");
+        System.out.println("2 - отобразить пароль пользователя");
+        System.out.println("другие символы - выход");
+        System.out.println("Выберите действие => ");
+        return scanner.nextLine();
     }
 }
