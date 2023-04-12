@@ -1,8 +1,10 @@
 package Trash;
 
-public class Main {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        System.out.println(Math.pow(3.14,4));
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(scanner.nextInt() + scanner.nextInt());
     }
 }
