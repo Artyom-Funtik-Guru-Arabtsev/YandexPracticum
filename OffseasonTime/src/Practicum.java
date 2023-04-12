@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Trash.Airport;
 import Trash.AirportDatabase;
 
@@ -13,8 +14,16 @@ class Practicum {
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd.MM.yy");
     // Задайте форматирование для времени в формате часы:минуты
     public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+=======
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
+>>>>>>> Stashed changes
+
+class Practicum {
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         System.out.println("Тест №1:");
         printFlightInformation(
                 "12:15 02.11.21",
@@ -156,5 +165,22 @@ class Practicum {
                         "|  BOARDING TIME   --:--      SEAT  1A       |   " + departureTimeOnly + "  |\n" +
                         "|  GATE  23                                  |   1A     |\n" +
                         "|____________________________________________|__________|");
+=======
+        LocalDate secretDate = LocalDate.of(2020, 1, 10);
+        LocalTime secretTime = LocalTime.of(12, 30);
+
+        int result = decode(secretDate, secretTime);
+        System.out.println(result);
+    }
+
+    private static int decode(LocalDate secretDate, LocalTime secretTime) {
+        // объедините secretDate и secretTime
+        LocalDateTime newTime = LocalDateTime.of(secretDate, secretTime);
+
+        // вычтите 2 месяца, 25 дней и 100 минут
+        LocalDateTime secretMoment = newTime.minusMonths(2).minusDays(25).minusMinutes(100);
+        // найдите произведение порядкового номера дня в году и часов из secretMoment
+        return secretMoment.getDayOfYear() * secretMoment.getHour();
+>>>>>>> Stashed changes
     }
 }

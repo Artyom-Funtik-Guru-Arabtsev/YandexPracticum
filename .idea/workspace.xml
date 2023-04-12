@@ -8,7 +8,6 @@
       <change afterPath="$PROJECT_DIR$/OffseasonTime/src/KeywordsGame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/OffseasonTime/src/WayToExit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OffseasonTime/src/Practicum.java" beforeDir="false" afterPath="$PROJECT_DIR$/OffseasonTime/src/Practicum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< Updated upstream
     "last_opened_file_path": "G:/YandexPracticum/java-kanban",
+=======
+    "last_opened_file_path": "D:/Yandex/java-kanban",
+>>>>>>> Stashed changes
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +117,13 @@
       <workItem from="1676225203015" duration="4164000" />
       <workItem from="1676233568983" duration="35000" />
       <workItem from="1676321566307" duration="1666000" />
+<<<<<<< Updated upstream
       <workItem from="1676403771760" duration="1410000" />
+=======
+      <workItem from="1676357189908" duration="1830000" />
+      <workItem from="1676560865588" duration="24000" />
+      <workItem from="1676561089392" duration="16000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="ТТТ">
       <created>1676233389982</created>
